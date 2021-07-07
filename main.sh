@@ -89,6 +89,6 @@ download_plain_file https://github.com/dortania/Getting-Started-With-ACPI/raw/ma
 download_plain_file https://github.com/dortania/Getting-Started-With-ACPI/raw/master/extra-files/compiled/SSDT-EC-USBX-DESKTOP.aml tmp/EFI/OC/ACPI
 download_plain_file https://github.com/dortania/Getting-Started-With-ACPI/raw/master/extra-files/compiled/SSDT-PMC.aml tmp/EFI/OC/ACPI
 
-source my.env
+source .env
 python3 main.py
 mv tmp.plist tmp/EFI/OC/config.plist
