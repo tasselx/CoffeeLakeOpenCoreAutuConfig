@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-OPENCORE_VERSION=0.7.0
+OPENCORE_VERSION=0.7.1
 
 function download_plain_file() {
     local path=/tmp
@@ -76,12 +76,19 @@ intelmausi_latest=$(get_latest_release "acidanthera/IntelMausi")
 download_kext intelmaus https://github.com/acidanthera/IntelMausi/releases/download/${intelmausi_latest}/IntelMausi-${intelmausi_latest}-RELEASE.zip IntelMausi.kext tmp/EFI/OC/Kexts
 nvmefix_latest=$(get_latest_release "acidanthera/NVMeFix")
 download_kext nvmefix https://github.com/acidanthera/NVMeFix/releases/download/${nvmefix_latest}/NVMeFix-${nvmefix_latest}-RELEASE.zip NVMeFix.kext tmp/EFI/OC/Kexts
+cpufriend_latest=$(get_latest_release "acidanthera/CPUFriend")
+download_kext cpufriend https://github.com/acidanthera/CPUFriend/releases/download/${cpufriend_latest}/CPUFriend-${cpufriend_latest}-RELEASE.zip CPUFriend.kext tmp/EFI/OC/Kexts
+airportbrcmfixup_latest=$(get_latest_release "acidanthera/AirportBrcmFixup")
+download_kext airportbrcmfixup https://github.com/acidanthera/AirportBrcmFixup/releases/download/${airportbrcmfixup_latest}/AirportBrcmFixup-${airportbrcmfixup_latest}-RELEASE.zip AirportBrcmFixup.kext tmp/EFI/OC/Kexts
+
+cp -rp Kexts/* tmp/EFI/OC/Kexts
+cp -rp Microsoft tmp/EFI 
 
 download_plain_file https://github.com/dortania/Getting-Started-With-ACPI/raw/master/extra-files/compiled/SSDT-PLUG-DRTNIA.aml tmp/EFI/OC/ACPI
 download_plain_file https://github.com/dortania/Getting-Started-With-ACPI/raw/master/extra-files/compiled/SSDT-AWAC.aml tmp/EFI/OC/ACPI
 download_plain_file https://github.com/dortania/Getting-Started-With-ACPI/raw/master/extra-files/compiled/SSDT-EC-USBX-DESKTOP.aml tmp/EFI/OC/ACPI
 download_plain_file https://github.com/dortania/Getting-Started-With-ACPI/raw/master/extra-files/compiled/SSDT-PMC.aml tmp/EFI/OC/ACPI
 
-source .env
+source my.env
 python3 main.py
 mv tmp.plist tmp/EFI/OC/config.plist

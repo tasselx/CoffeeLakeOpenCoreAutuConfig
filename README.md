@@ -26,4 +26,6 @@ after do these, a EFI will located at `tmp/EFI`
 
 check you config, and fix your ROM https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#fixing-rom
 
+Add support for windows boot, and add some unique kext files, you need to use OpenCore Configurator, in the left Kernel column, click Scan/Browse and select EFI/OC/Kexts to add
+
 Enjoy!
