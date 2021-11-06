@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-OPENCORE_VERSION=0.7.4
+OPENCORE_VERSION=0.7.5
 
 function download_plain_file() {
     local path=/tmp
